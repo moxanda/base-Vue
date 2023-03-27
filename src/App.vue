@@ -2,9 +2,12 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from '@/components/HelloWorld.vue'
 import ComponenteHijo from '@/components/ComponenteHijo.vue'
+import TodosView from '@/components/TodosView.vue'
+
 </script>
 
 <template>
+  <TodosView></TodosView>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
@@ -18,7 +21,7 @@ import ComponenteHijo from '@/components/ComponenteHijo.vue'
       </nav>
     </div>
   </header>
-  <ComponenteHijo  param1="PaRaM1 param2="PaRaM2"  />
+  <!-- ComponenteHijo  param1="PaRaM1 param2="PaRaM2"  / -->
   <RouterView />
 </template>
 
