@@ -9,9 +9,9 @@
   const text = ref('')
   const emits = defineEmits(['onNewItem'])
   function handleSubmit(){
-    console.log('Entro en Comp InputNew handleSubmit')
-    alert('Entro en Comp InputNew handleSubmit')
+    // alert('Entro en Comp InputNew handleSubmit')
     if (text != '') {
+  
       emits('onNewItem',text)
       text.value = ''
     }

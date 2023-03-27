@@ -2,14 +2,14 @@
   <div>
     <nav>
       <ul>
-        <li><a href="#">Crear Tablero</a></li>
+        <li><a href="#" @click.prevent="handleNewBoard">Crear Tablero</a></li>
       </ul>
     </nav>
     <div class="boards-container">
       <div class="boards">
         <div class="board" v-for="board in boards" :key="board.id">
           <div>{{board.name}}</div>
-          <InputNew @on-new-item="handleNewItem"></InputNew>
+          <InputNew @on-new-item=" (text) => handleNewItem(text, board)"></InputNew>
           <div class="items">
             <div class="item drag-el" v-for="item in board.items" :key="item.id">
               {{ item.title }}
@@ -56,9 +56,34 @@
       ]
     },
   ])  
-  function handleNewItem(text) {
-    console.log(text.value)
+  function handleNewItem(text, board) {
+    // alert('Entro en Comp TodosView handleNewItem text.value '+text.value+' B id '+board.id+' B name '+board.name)
+    board.items.push({
+      id: crypto.randomUUID(),
+      title: text.value
+    })
   }
+
+  function handleNewBoard() {
+    // alert('Entro en Comp TodosView handleNewBoard')
+    const name = prompt('Nombre de la tabla: ')
+    if (!! name) {
+      boards.push({
+        id: crypto.randomUUID(),
+        name: name,
+        items: []
+      })
+    }
+  }
+
+  function startDrop(){
+    
+  }
+
+  function onDrop() {
+    
+  }
+  
 </script>
 
 <style scoped>
